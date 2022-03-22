@@ -34,3 +34,31 @@ install(TARGETS Tutorial DESTINATION bin)
 install(FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h"
                 DESTINATION include
         )
+
+enable_testing()
+
+# 运行程序
+add_test(NAME Runs COMMAND Tutorial 25)
+        
+# 是否能打印程序的使用方式？
+add_test(NAME Usage COMMAND Tutorial)
+set_tests_properties(Usage
+          PROPERTIES PASS_REGULAR_EXPRESSION "Usage:.*number"
+          )
+        
+# 定义一个函数来简化添加测试用例的过程
+function(do_test target arg result)
+  add_test(NAME Comp${arg} COMMAND ${target} ${arg})
+  set_tests_properties(Comp${arg}
+    PROPERTIES PASS_REGULAR_EXPRESSION ${result}
+            )
+endfunction(do_test)
+        
+        # 一些基于结果的测试
+        do_test(Tutorial 4 "4 is 2")
+        do_test(Tutorial 9 "9 is 3")
+        do_test(Tutorial 5 "5 is 2.236")
+        do_test(Tutorial 7 "7 is 2.645")
+        do_test(Tutorial 25 "25 is 5")
+        do_test(Tutorial -25 "-25 is [-nan|nan|0]")
+        do_test(Tutorial 0.0001 "0.0001 is 0.01")        
