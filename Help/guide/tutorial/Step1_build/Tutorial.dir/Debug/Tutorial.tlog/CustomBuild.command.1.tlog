@@ -1,0 +1,10 @@
+^D:\CMAKE PRACTICE REGION\CMAKE SOURCE CODE\CMAKE\HELP\GUIDE\TUTORIAL\STEP1\CMAKELISTS.TXT
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" "-SD:/CMake Practice Region/CMake Source Code/CMake/Help/guide/tutorial/Step1" "-BD:/CMake Practice Region/CMake Source Code/CMake/Help/guide/tutorial/Step1_build" --check-stamp-file "D:/CMake Practice Region/CMake Source Code/CMake/Help/guide/tutorial/Step1_build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
