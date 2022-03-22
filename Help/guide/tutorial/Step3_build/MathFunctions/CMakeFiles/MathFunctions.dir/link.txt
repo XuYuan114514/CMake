@@ -1,0 +1,2 @@
+"D:\Program Files\mingw-w64\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin\ar.exe" qc libMathFunctions.a CMakeFiles/MathFunctions.dir/mysqrt.cxx.obj
+"D:\Program Files\mingw-w64\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin\ranlib.exe" libMathFunctions.a
